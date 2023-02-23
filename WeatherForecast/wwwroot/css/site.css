@@ -1,0 +1,149 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 58%, rgba(219,241,255,1) 91%, rgba(212,233,255,1) 100%);
+    background-attachment: fixed;
+}
+
+
+
+
+h1, h2, h3, h4, h6{
+    font-weight: 200;
+}
+
+.today-container {
+    border-radius: 10px;
+    box-shadow: 6px 6px 6px #ddd;
+}
+
+.weatherData strong {
+    font-weight: 200;
+    font-size: xx-large;
+}
+
+
+.sun-icon h4::after {
+    background-image: url('/img/sun-icon.png');
+    background-size: 32px 35px;
+    display: inline-block;
+    width: 30px;
+    height: 33px;
+    content: "";
+    margin-left: 10px;
+}
+
+.wind-icon h4::after {
+    background-image: url('/img/wind-icon.png');
+    background-size: 40px 30px;
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    content: "";
+    margin-left: 10px;
+}
+
+.clouds-icon h4::after {
+    background-image: url('/img/clouds-icon.png');
+    background-size: 38px 25px;
+    display: inline-block;
+    width: 38px;
+    height: 25px;
+    content: "";
+    margin-left: 10px;
+}
+
+.arrow-icon-up strong::before {
+    background-image: url('/img/arrow.png');
+    background-size: 20px 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+
+.arrow-icon-down strong::before {
+    background-image: url('/img/arrow.png');
+    background-size: 20px 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.header-display {
+    font-size: 70px;
+    display: inline-block;
+}
+
+.th-width {
+    width: 10%;
+}
+
+.weather-nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+    font-size: large;
+}
+
+
+
+/*CSS overrides*/
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+.sticky-top-2 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 39px;
+    z-index: 1020;
+}
+
+@media (max-width: 768px) {
+    .sticky-top-2 {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 34px;
+        z-index: 1020;
+    }
+}
+
+.bg-light {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+}
+

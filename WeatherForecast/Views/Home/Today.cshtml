@@ -1,0 +1,56 @@
+﻿@model WeatherTodayModel
+
+<div class="row text-center mt-4">
+        <ul class="nav nav-pills justify-content-center weather-nav">
+            <li class="nav-item">
+                <a class="nav-link active" asp-controller="Home" asp-action="Today">Today</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Home" asp-action="Forecast">5 days</a>
+            </li>
+        </ul>
+</div>
+
+<div class="row mt-5 today-container">
+    <div class="col-12 col-md-4 py-5 bg-light text-center font-display">
+        <h4 class="mb-3">@Model.Name</h4>
+        <h1>Today</h1>
+        <h4>@DateTime.Now.ToString("HH:mm")</h4>
+        <div class="mt-4">
+            <h1 class="header-display">@Math.Round(Model.Main.Temp)&#xb0;</h1>
+            <img src="http://openweathermap.org/img/wn/@(Model.Weather[0].Icon).png" />
+            <h4>@Model.Weather[0].Description</h4>
+        </div>
+    </div>
+    <div class="col-12 col-md-8 p-5 bg-white">
+        <div class="row mb-3 weatherData">
+            <div class="col-6 col-md-4 text-center clouds-icon pt-2">
+                <h4>Clouds</h4>
+                <strong>@Model.Clouds.All &#x25;</strong>
+            </div>
+            <div class="col-6 col-md-4 text-center wind-icon pt-1">
+                <h4>Wind</h4>
+                <strong>@Math.Round(Model.Wind.Speed) (@Math.Round(Model.Wind.Gust)) m/s</strong>
+            </div>
+            <div class="col-6 col-md-4 mt-5 mt-md-0 text-center sun-icon">
+                <h4>Sunrise & Sunset</h4>
+                <div class="row arrow-icon-up">
+                    <strong> @Model.Sys.RiseTime.ToString("HH:mm")</strong>
+                </div>
+                <div class="row arrow-icon-down">
+                    <strong> @Model.Sys.SetTime.ToString("HH:mm")</strong>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-6 col-md-4 text-center weatherData">
+                <h4>Pressure</h4>
+                <strong>@Model.Main.Pressure hPa</strong>
+            </div>
+            <div class="col-6 col-md-4 text-center weatherData">
+                <h4>Humidity</h4>
+                <strong>@Model.Main.Humidity &#x25;</strong>
+            </div>
+        </div>
+    </div>
+</div>

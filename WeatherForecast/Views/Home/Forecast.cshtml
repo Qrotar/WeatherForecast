@@ -1,0 +1,74 @@
+﻿@model WeatherForecastModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="row text-center mt-4">
+    <ul class="nav nav-pills justify-content-center weather-nav">
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Home" asp-action="Today">Today</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" asp-controller="Home" asp-action="Forecast">5 days</a>
+        </li>
+    </ul>
+</div>
+
+@if (Model != null)
+{
+    <div class="row">
+        <div class="col-12 col-lg-10 offset-lg-1">
+            <div class="text-center my-5">
+                <h1>@Model.City.Name</h1>
+            </div>
+            <div>
+                <table class="table">
+                    <thead class="sticky-top bg-white">
+                        <tr>
+                            <th class="th-width"></th>
+                            <th>Time</th>
+                            <th></th>
+                            <th>Temp</th>
+                            <th>Clouds</th>
+                            <th>Wind</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var forecast in Model.List)
+                        {
+                            @if (forecast.DateTime.ToString("HH:mm") == "01:00")
+                            {
+                                <tr class="mt-5">
+                                    <th colspan="6" class="sticky-top-2 bg-light">
+                                        <h5>@forecast.DateTime.ToString("MMM dd")</h5>
+                                    </th>
+                                </tr>
+                            }
+                            <tr>
+                                <th></th>
+                                <td>@forecast.DateTime.ToString("HH:mm")</td>
+                                <td>
+                                    @foreach (var item in forecast.Weather)
+                                    {
+                                        <img src="http://openweathermap.org/img/wn/@(item.Icon).png" />
+                                    }
+                                </td>
+                                <td>@Math.Round(forecast.Main.Temp)&#xb0;</td>
+                                <td>@forecast.Clouds.All &#x25;</td>
+                                <td>@Math.Round(forecast.Wind.Speed) (@Math.Round(forecast.Wind.Gust)) m/s</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+
+
+
