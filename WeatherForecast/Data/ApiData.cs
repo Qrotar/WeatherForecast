@@ -4,7 +4,7 @@ using System.Net.Http.Headers;
 using WeatherForecast.Models;
 
 
-
+//Get forecast weather data
 namespace WeatherForecast.Data
 {
 	public static class ApiData
@@ -41,6 +41,7 @@ namespace WeatherForecast.Data
             }
         }
 
+        //Get current weather data
         public static async Task<WeatherTodayModel> GetWeatherToday(string baseURL, string apiKey)
         {
             WeatherTodayModel weatherToday = new WeatherTodayModel();
